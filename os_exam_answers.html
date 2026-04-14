@@ -1,0 +1,2006 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OS Exam Answers – All Chapters</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --surface2: #22263a;
+    --border: #2e3450;
+    --accent1: #6c63ff;
+    --accent2: #ff6584;
+    --accent3: #43e97b;
+    --accent4: #f9ca24;
+    --accent5: #00cec9;
+    --text: #e8eaf6;
+    --text-muted: #8892b0;
+    --ch1: #6c63ff;
+    --ch2: #ff6584;
+    --ch3: #43e97b;
+    --ch4: #f9ca24;
+    --ch5: #00cec9;
+    --hot: #ff4757;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Space Grotesk', sans-serif;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* HEADER */
+  .hero {
+    background: linear-gradient(135deg, #0f1117 0%, #1a1d27 50%, #0f1117 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 40px 24px 30px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; left: 50%; transform: translateX(-50%);
+    width: 500px; height: 200px;
+    background: radial-gradient(ellipse, rgba(108,99,255,0.25) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero h1 {
+    font-size: clamp(22px, 5vw, 38px);
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, #a78bfa, #6c63ff, #38bdf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 8px;
+  }
+  .hero p {
+    color: var(--text-muted);
+    font-size: 14px;
+    max-width: 600px;
+    margin: 0 auto 20px;
+  }
+  .badges {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .badge {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    border: 1px solid;
+  }
+
+  /* NAV */
+  .sticky-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(15,17,23,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 10px 20px;
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .sticky-nav::-webkit-scrollbar { display: none; }
+  .nav-btn {
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text-muted);
+    transition: all 0.2s;
+    white-space: nowrap;
+    font-family: inherit;
+  }
+  .nav-btn:hover, .nav-btn.active {
+    color: white;
+  }
+  .nav-btn[data-ch="1"]:hover, .nav-btn[data-ch="1"].active { border-color: var(--ch1); background: rgba(108,99,255,0.15); color: var(--ch1); }
+  .nav-btn[data-ch="2"]:hover, .nav-btn[data-ch="2"].active { border-color: var(--ch2); background: rgba(255,101,132,0.15); color: var(--ch2); }
+  .nav-btn[data-ch="3"]:hover, .nav-btn[data-ch="3"].active { border-color: var(--ch3); background: rgba(67,233,123,0.15); color: var(--ch3); }
+  .nav-btn[data-ch="4"]:hover, .nav-btn[data-ch="4"].active { border-color: var(--ch4); background: rgba(249,202,36,0.15); color: var(--ch4); }
+  .nav-btn[data-ch="5"]:hover, .nav-btn[data-ch="5"].active { border-color: var(--ch5); background: rgba(0,206,201,0.15); color: var(--ch5); }
+
+  /* MAIN */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px 20px 60px;
+  }
+
+  /* CHAPTER SECTION */
+  .chapter {
+    margin-bottom: 60px;
+  }
+  .chapter-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 28px;
+    padding: 18px 22px;
+    border-radius: 14px;
+    border: 1px solid;
+    position: relative;
+    overflow: hidden;
+  }
+  .chapter-header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    opacity: 0.07;
+    pointer-events: none;
+  }
+  .ch1 .chapter-header { border-color: var(--ch1); }
+  .ch1 .chapter-header::before { background: var(--ch1); }
+  .ch2 .chapter-header { border-color: var(--ch2); }
+  .ch2 .chapter-header::before { background: var(--ch2); }
+  .ch3 .chapter-header { border-color: var(--ch3); }
+  .ch3 .chapter-header::before { background: var(--ch3); }
+  .ch4 .chapter-header { border-color: var(--ch4); }
+  .ch4 .chapter-header::before { background: var(--ch4); }
+  .ch5 .chapter-header { border-color: var(--ch5); }
+  .ch5 .chapter-header::before { background: var(--ch5); }
+
+  .ch-icon {
+    font-size: 32px;
+    line-height: 1;
+  }
+  .ch-title h2 {
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .ch-title p {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+  .ch1 .ch-title h2 { color: var(--ch1); }
+  .ch2 .ch-title h2 { color: var(--ch2); }
+  .ch3 .ch-title h2 { color: var(--ch3); }
+  .ch4 .ch-title h2 { color: var(--ch4); }
+  .ch5 .ch-title h2 { color: var(--ch5); }
+
+  /* QUESTION CARD */
+  .q-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    margin-bottom: 16px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .q-card:hover { border-color: #3e4570; }
+
+  .q-header {
+    padding: 14px 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    user-select: none;
+  }
+  .q-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .marks-badge {
+    padding: 2px 8px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .m7 { background: rgba(108,99,255,0.2); color: #a78bfa; border: 1px solid rgba(108,99,255,0.3); }
+  .m4 { background: rgba(249,202,36,0.2); color: #fbbf24; border: 1px solid rgba(249,202,36,0.3); }
+  .m3 { background: rgba(67,233,123,0.2); color: #6ee7b7; border: 1px solid rgba(67,233,123,0.3); }
+  .hot-badge {
+    font-size: 10px;
+    padding: 2px 7px;
+    background: rgba(255,71,87,0.15);
+    color: var(--hot);
+    border: 1px solid rgba(255,71,87,0.3);
+    border-radius: 8px;
+    font-weight: 700;
+  }
+  .q-text {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+    flex: 1;
+  }
+  .q-arrow {
+    color: var(--text-muted);
+    font-size: 16px;
+    transition: transform 0.25s;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .q-card.open .q-arrow {
+    transform: rotate(180deg);
+  }
+
+  .q-answer {
+    display: none;
+    border-top: 1px solid var(--border);
+    padding: 20px 20px 22px;
+  }
+  .q-card.open .q-answer { display: block; }
+
+  /* Answer content styles */
+  .q-answer h3 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--accent4);
+    margin: 16px 0 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .q-answer h3:first-child { margin-top: 0; }
+  .q-answer p {
+    font-size: 14px;
+    color: #c8cde8;
+    margin-bottom: 10px;
+    line-height: 1.75;
+  }
+  .q-answer ul, .q-answer ol {
+    padding-left: 20px;
+    margin-bottom: 12px;
+  }
+  .q-answer li {
+    font-size: 14px;
+    color: #c8cde8;
+    margin-bottom: 5px;
+    line-height: 1.65;
+  }
+  .q-answer strong {
+    color: #e8eaf6;
+    font-weight: 600;
+  }
+  .q-answer em {
+    color: var(--accent3);
+    font-style: normal;
+    font-weight: 500;
+  }
+
+  /* Tip box */
+  .tip-box {
+    background: rgba(108,99,255,0.08);
+    border: 1px solid rgba(108,99,255,0.25);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 12px 0 6px;
+    font-size: 13px;
+    color: #b4b8e0;
+  }
+  .tip-box::before {
+    content: "💡 Exam Tip: ";
+    font-weight: 700;
+    color: var(--accent4);
+  }
+
+  /* Table */
+  .ans-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0 14px;
+    font-size: 13px;
+  }
+  .ans-table th {
+    background: var(--surface2);
+    color: var(--accent4);
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+    border: 1px solid var(--border);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+  }
+  .ans-table td {
+    padding: 7px 12px;
+    border: 1px solid var(--border);
+    color: #c8cde8;
+    vertical-align: top;
+  }
+  .ans-table tr:nth-child(even) td {
+    background: rgba(255,255,255,0.02);
+  }
+
+  /* Code/Algorithm block */
+  .algo-block {
+    background: #11131e;
+    border: 1px solid #2e3450;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: #a8b2d8;
+    margin: 10px 0;
+    white-space: pre-wrap;
+    line-height: 1.7;
+  }
+
+  /* Number highlight */
+  .num {
+    display: inline-block;
+    background: var(--surface2);
+    color: var(--accent1);
+    border: 1px solid rgba(108,99,255,0.3);
+    border-radius: 6px;
+    padding: 1px 7px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 600;
+    margin: 0 2px;
+  }
+
+  /* Memory diagram helper */
+  .diagram-row {
+    display: flex;
+    gap: 4px;
+    margin: 6px 0;
+    align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+  }
+  .diagram-box {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 4px 10px;
+    background: var(--surface2);
+    color: var(--text);
+    text-align: center;
+    min-width: 60px;
+  }
+  .diagram-box.fill { background: rgba(108,99,255,0.2); border-color: var(--accent1); }
+
+  /* Mobile responsive */
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 22px; }
+    .q-header { flex-wrap: wrap; }
+    .q-meta { order: -1; }
+    .ans-table { font-size: 11px; }
+    .ans-table th, .ans-table td { padding: 5px 8px; }
+  }
+
+  /* Search bar */
+  .search-bar {
+    display: flex;
+    justify-content: center;
+    padding: 14px 20px;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+  }
+  .search-input {
+    width: 100%;
+    max-width: 500px;
+    padding: 10px 16px;
+    border-radius: 24px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .search-input:focus { border-color: var(--accent1); }
+  .search-input::placeholder { color: var(--text-muted); }
+
+  .hidden { display: none !important; }
+
+  /* Progress */
+  .ch-progress {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 6px;
+  }
+  .progress-bar {
+    height: 3px;
+    border-radius: 2px;
+    background: var(--border);
+    flex: 1;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    border-radius: 2px;
+    transition: width 0.4s;
+  }
+  .ch1 .progress-fill { background: var(--ch1); }
+  .ch2 .progress-fill { background: var(--ch2); }
+  .ch3 .progress-fill { background: var(--ch3); }
+  .ch4 .progress-fill { background: var(--ch4); }
+  .ch5 .progress-fill { background: var(--ch5); }
+  .progress-text {
+    font-size: 11px;
+    color: var(--text-muted);
+    font-family: 'JetBrains Mono', monospace;
+    white-space: nowrap;
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>📚 OS Exam Answer Bank</h1>
+  <p>Chapter-wise answers for your Operating System exam — beginner-friendly, mark-by-mark. Click any question to reveal the answer!</p>
+  <div class="badges">
+    <span class="badge" style="border-color:var(--ch1);color:var(--ch1)">Ch 1: Intro to OS</span>
+    <span class="badge" style="border-color:var(--ch2);color:var(--ch2)">Ch 2: CPU Scheduling</span>
+    <span class="badge" style="border-color:var(--ch3);color:var(--ch3)">Ch 3: Deadlock & Sync</span>
+    <span class="badge" style="border-color:var(--ch4);color:var(--ch4)">Ch 4: Memory Mgmt</span>
+    <span class="badge" style="border-color:var(--ch5);color:var(--ch5)">Ch 5: File & Disk</span>
+  </div>
+</div>
+
+<div class="sticky-nav">
+  <button class="nav-btn active" data-ch="all" onclick="filterChapter('all',this)">🔍 All</button>
+  <button class="nav-btn" data-ch="1" onclick="filterChapter('ch1',this)">Ch 1 – Intro to OS</button>
+  <button class="nav-btn" data-ch="2" onclick="filterChapter('ch2',this)">Ch 2 – CPU Scheduling</button>
+  <button class="nav-btn" data-ch="3" onclick="filterChapter('ch3',this)">Ch 3 – Sync & Deadlock</button>
+  <button class="nav-btn" data-ch="4" onclick="filterChapter('ch4',this)">Ch 4 – Memory Mgmt</button>
+  <button class="nav-btn" data-ch="5" onclick="filterChapter('ch5',this)">Ch 5 – File & Disk</button>
+</div>
+
+<div class="search-bar">
+  <input class="search-input" type="text" placeholder="Search questions…" oninput="searchCards(this.value)">
+</div>
+
+<div class="container">
+
+<!-- ===================== CHAPTER 1 ===================== -->
+<div class="chapter ch1" id="ch1">
+  <div class="chapter-header">
+    <span class="ch-icon">🖥️</span>
+    <div class="ch-title">
+      <h2>Chapter 1 — Introduction to Operating System</h2>
+      <p>OS definition, types, functions, system calls, kernel structures</p>
+    </div>
+  </div>
+
+  <!-- Q1 -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-meta"><span class="marks-badge m7">7 marks</span><span class="hot-badge">🔥 HOT</span></div>
+      <div class="q-text">Define Operating System. Explain any five services/functions of OS.</div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-answer">
+      <h3>Definition</h3>
+      <p>An <strong>Operating System (OS)</strong> is a system software that acts as an intermediary between the user and the computer hardware. It manages hardware resources and provides services to user programs.</p>
+      <p><em>Simple Memory Trick:</em> OS = <strong>"Manager + Mediator"</strong> of the computer.</p>
+      <h3>5 Services / Functions of OS</h3>
+      <ol>
+        <li><strong>Program Execution:</strong> OS loads a program into RAM, allocates CPU time, runs it, and stops it safely. <em>Example: Opening YouTube loads the app and gives it CPU.</em></li>
+        <li><strong>Memory Management:</strong> OS tracks which memory is free/used. It allocates memory when a program starts and frees it when done. <em>Example: Opening MS Word → OS gives it RAM.</em></li>
+        <li><strong>I/O Device Management:</strong> Users cannot control devices directly. OS controls all I/O devices (keyboard, printer, disk) and provides them to programs as needed.</li>
+        <li><strong>File Management:</strong> OS provides a folder/directory system to easily read, write, rename, and delete files. <em>Example: Saving a photo — OS allocates disk space and writes the file.</em></li>
+        <li><strong>Error Detection and Response:</strong> OS constantly checks for errors in CPU, memory, and devices. If an error occurs (like a bad sector on disk), OS takes appropriate action.</li>
+        <li><strong>Protection & Security:</strong> OS ensures unauthorized users cannot access the system. <em>Example: PIN/fingerprint login on phone.</em></li>
+        <li><strong>Accounting:</strong> OS keeps track of which user/process is using how much CPU, RAM, disk. <em>Example: Windows Task Manager.</em></li>
+      </ol>
+      <div class="tip-box">Write any 5. For 7-mark answers, give 1-line definition + 5 functions with a small real-life example each. That's full marks!</div>
+    </div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-meta"><span class="marks-badge m7">7 marks</span><span class="hot-badge">🔥 HOT</span></div>
+      <div class="q-text">Define Operating System. Explain any five types of OS (Batch / Time-sharing / Multiprogramming / Multiprocessing / Real-time).</div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-answer">
+      <h3>Definition</h3>
+      <p>An OS is software that manages hardware resources and provides a convenient environment for user programs. <em>It sits between hardware and user programs.</em></p>
+      <h3>5 Types of Operating System</h3>
+      <ol>
+        <li><strong>Batch OS:</strong> Jobs with similar requirements are grouped (batched) and executed one after another without user interaction. <em>Example: Payroll processing, bank statement generation.</em></li>
+        <li><strong>Time-Sharing OS:</strong> CPU time is divided into small time slices (quantum). Multiple users share the CPU in round-robin fashion. Each user feels the system is dedicated to them. <em>Example: Unix, Linux on servers.</em></li>
+        <li><strong>Multiprogramming OS:</strong> Multiple programs are kept in memory simultaneously. When one program waits for I/O, CPU switches to another. Goal: Keep CPU busy. <em>Example: Windows running browser + antivirus.</em></li>
+        <li><strong>Multiprocessing OS:</strong> Two or more CPUs are used in one computer. Programs run in true parallel. <em>Example: Dual-core/Quad-core laptops running Chrome on one core and virus scan on another.</em></li>
+        <li><strong>Real-Time OS (RTOS):</strong> Must complete tasks within a fixed time. Two types:
+          <ul>
+            <li><strong>Hard RTOS:</strong> Missing deadline = disaster. <em>Example: Car airbag system, missile guidance.</em></li>
+            <li><strong>Soft RTOS:</strong> Missing deadline = quality degrades. <em>Example: Streaming video.</em></li>
+          </ul>
+        </li>
+        <li><strong>Distributed OS:</strong> Runs on multiple machines and makes them work as one system. <em>Example: ATM banking network.</em></li>
+      </ol>
+      <div class="tip-box">For each type: write 2 lines of explanation + 1 example. That's enough for full marks in 7-mark question.</div>
+    </div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-meta"><span class="marks-badge m4">4 marks</span><span class="hot-badge">🔥 HOT</span></div>
+      <div class="q-text">Define the role of OS as a Resource Manager.</div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-answer">
+      <h3>OS as Resource Manager</h3>
+      <p>A computer has many resources: <strong>CPU, RAM, Hard Disk, Printer, Keyboard</strong>. When multiple applications run, they compete for these resources. It is the job of the OS to <strong>allocate, protect, and synchronize</strong> access to these resources.</p>
+      <h3>4 Key Responsibilities</h3>
+      <ol>
+        <li><strong>Fair Allocation:</strong> OS gives each process a fair share. <em>Example: 4 processes want to print → OS queues them and prints one by one.</em></li>
+        <li><strong>Protection from Cross-Access:</strong> OS ensures one process cannot access or corrupt another's memory or files.</li>
+        <li><strong>Synchronization:</strong> When multiple processes access shared data, OS ensures operations are correct and consistent (no race conditions).</li>
+        <li><strong>Deadlock Handling:</strong> OS detects and resolves situations where two processes are waiting for each other's resources forever.</li>
+      </ol>
+      <h3>Two Sharing Methods</h3>
+      <ul>
+        <li><strong>Time Sharing (CPU):</strong> CPU is given to processes one at a time, switching rapidly.</li>
+        <li><strong>Space Sharing (Memory):</strong> RAM is divided and different portions are given to different processes simultaneously.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-meta"><span class="marks-badge m7">7 marks</span></div>
+      <div class="q-text">Define System Call. Explain types of System Calls in detail.</div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-answer">
+      <h3>What is a System Call?</h3>
+      <p>A <strong>system call</strong> is a request made by a user program to the OS to perform privileged operations (like reading a file, printing, or creating a process). It acts as an interface between user programs and the OS kernel.</p>
+      <p><em>Simple analogy: You (user program) ask the manager (OS) to do something you're not allowed to do yourself.</em></p>
+      <h3>Types of System Calls</h3>
+      <ol>
+        <li><strong>Process Control:</strong> Creating, terminating, waiting for processes.<br><em>Functions:</em> fork(), exit(), wait(), exec()</li>
+        <li><strong>File Management:</strong> Creating, deleting, opening, reading, writing files.<br><em>Functions:</em> create(), open(), read(), write(), close(), delete()</li>
+        <li><strong>Device Management:</strong> Requesting or releasing I/O devices, reading/writing from device buffers.<br><em>Functions:</em> request(), release(), read(), write()</li>
+        <li><strong>Information Maintenance:</strong> Getting/setting system info like time, date, process attributes.<br><em>Functions:</em> getpid(), alarm(), sleep()</li>
+        <li><strong>Communication:</strong> Sending/receiving messages between processes (IPC).<br><em>Functions:</em> pipe(), create(), send(), receive()</li>
+      </ol>
+      <div class="tip-box">Remember the 5 types as: <strong>PFDIC</strong> — Process, File, Device, Information, Communication.</div>
+    </div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-meta"><span class="marks-badge m3">3 marks</span><span class="hot-badge">🔥 HOT</span></div>
+      <div class="q-text">Explain Monolithic Kernel with diagram.</div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-answer">
+      <h3>Monolithic Kernel</h3>
+      <p>In a monolithic kernel, the <strong>entire OS runs as a single large program in kernel mode</strong>. All OS services (memory management, scheduling, file systems, device drivers) are packed together in one big executable.</p>
+      <h3>Structure</h3>
+      <p>It has 3 parts: <strong>Main Program → Service Procedures → Utility Procedures</strong>. Each procedure can call any other procedure — no restrictions.</p>
+      <ul>
+        <li>✅ <strong>Fast:</strong> No overhead from inter-process communication</li>
+        <li>✅ <strong>Simple:</strong> Easy to implement</li>
+        <li>❌ <strong>Risky:</strong> A bug in one part can crash the whole OS</li>
+      </ul>
+      <p><em>Example: Linux uses Monolithic kernel.</em></p>
+      <div class="tip-box">Draw a simple box diagram: User Apps → [Monolithic Kernel: Process + Memory + FS + Drivers] → Hardware</div>
+    </div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-meta"><span class="marks-badge m3">3 marks</span></div>
+      <div class="q-text">Explain Layered System / Microkernel with diagram.</div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-answer">
+      <h3>Microkernel</h3>
+      <p>In microkernel design, <strong>as little as possible runs in kernel mode</strong>. Only essential services like inter-process communication and basic scheduling run in the kernel. All other services (file system, device drivers) run as user-mode processes.</p>
+      <ul>
+        <li>✅ <strong>Reliable:</strong> A crash in a driver doesn't crash the OS</li>
+        <li>✅ <strong>Secure:</strong> Less code in kernel = less risk</li>
+        <li>❌ <strong>Slower:</strong> More message passing between processes</li>
+      </ul>
+      <p><em>Example: Windows NT uses Microkernel architecture.</em></p>
+      <h3>Layered System</h3>
+      <p>The OS is organized as layers, where each layer only uses the services of the layer below it. Layer 0 = hardware, Layer N = user programs.</p>
+      <p><em>Advantage:</em> Easy to debug (test one layer at a time). <em>Disadvantage:</em> Slower due to layer-by-layer communication.</p>
+    </div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-meta"><span class="marks-badge m4">4 marks</span></div>
+      <div class="q-text">Define Multiprogramming, Multiprocessing, Multitasking — compare them.</div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-answer">
+      <table class="ans-table">
+        <tr><th>Feature</th><th>Multiprogramming</th><th>Multiprocessing</th><th>Multitasking</th></tr>
+        <tr><td>CPUs</td><td>1 CPU</td><td>2+ CPUs</td><td>1 CPU</td></tr>
+        <tr><td>Goal</td><td>Keep CPU busy</td><td>True parallel execution</td><td>Fast switching for users</td></tr>
+        <tr><td>Switching</td><td>When I/O occurs</td><td>Truly simultaneous</td><td>Time-slice based</td></tr>
+        <tr><td>Example</td><td>Browser + antivirus</td><td>Quad-core CPU</td><td>Windows/Linux desktop</td></tr>
+      </table>
+      <div class="tip-box">Easy trick: Multi<strong>programming</strong> = multiple programs in memory (CPU switches on I/O). Multi<strong>processing</strong> = multiple CPUs. Multi<strong>tasking</strong> = rapid switching giving illusion of parallel.</div>
+    </div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-meta"><span class="marks-badge m7">7 marks</span></div>
+      <div class="q-text">Explain OS Services from User and System point of view.</div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-answer">
+      <h3>User Point of View (Services that help users)</h3>
+      <ol>
+        <li><strong>User Interface (UI):</strong> OS provides CLI (command line) or GUI (graphical) for users to interact with the system.</li>
+        <li><strong>Program Execution:</strong> OS loads programs into memory, runs them, and handles normal/abnormal termination.</li>
+        <li><strong>I/O Operations:</strong> Programs may need file or device I/O. OS handles this since users can't control hardware directly.</li>
+        <li><strong>File System Manipulation:</strong> Read, write, create, delete, rename files and directories.</li>
+        <li><strong>Error Handling:</strong> OS detects and responds to errors in CPU, memory, I/O, user programs.</li>
+      </ol>
+      <h3>System Point of View (Services that help the OS itself)</h3>
+      <ol>
+        <li><strong>Resource Allocation:</strong> OS allocates CPU, memory, I/O devices fairly among multiple users/processes.</li>
+        <li><strong>Accounting:</strong> OS tracks who uses what resources. Useful for billing or optimization.</li>
+        <li><strong>Protection & Security:</strong> Controls access to resources. Authenticates users. Defends against outside attacks.</li>
+      </ol>
+    </div>
+  </div>
+</div><!-- end ch1 -->
+
+<!-- ===================== CHAPTER 2 ===================== -->
+<div class="chapter ch2" id="ch2">
+  <div class="chapter-header">
+    <span class="ch-icon">⚙️</span>
+    <div class="ch-title">
+      <h2>Chapter 2 — Process Management & CPU Scheduling</h2>
+      <p>Process states, PCB, scheduling algorithms, threads</p>
+    </div>
+  </div>
+
+  <!-- Q1 -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-meta"><span class="marks-badge m4">4 marks</span><span class="hot-badge">🔥 HOT</span></div>
+      <div class="q-text">Define Process. Explain five-state Process State Transition diagram with each state detail.</div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-answer">
+      <h3>What is a Process?</h3>
+      <p>A <strong>process</strong> is a program in execution. When a program is loaded into memory and starts running, it becomes a process. A process has its own: <strong>Program Counter, Registers, Stack, Heap</strong>.</p>
+      <p><em>Example: You open Calculator → it becomes a process. Open MS Word → another process.</em></p>
+      <h3>Five States</h3>
+      <ol>
+        <li><strong>New:</strong> Process is being created (just loaded from disk).</li>
+        <li><strong>Ready:</strong> Process is in memory, waiting to get CPU. (Multiple processes can be in Ready state.)</li>
+        <li><strong>Running:</strong> Process is currently using the CPU. (Only ONE process runs at a time on single CPU.)</li>
+        <li><strong>Blocked/Waiting:</strong> Process is waiting for an event (like I/O to complete). Cannot run until event happens.</li>
+        <li><strong>Exit/Terminated:</strong> Process has finished execution and is removed from memory.</li>
+      </ol>
+      <h3>State Transitions</h3>
+      <ul>
+        <li><strong>New → Ready:</strong> Process admitted to memory (Admit)</li>
+        <li><strong>Ready → Running:</strong> Scheduler picks this process (Dispatch)</li>
+        <li><strong>Running → Ready:</strong> Time-slice expired or preempted (Timeout)</li>
+        <li><strong>Running → Blocked:</strong> Waiting for I/O or event (Event Wait)</li>
+        <li><strong>Blocked → Ready:</strong> I/O completed / event occurred (Event Occurs)</li>
+        <li><strong>Running → Exit:</strong> Process finished (Release)</li>
+      </ul>
+      <div class="tip-box">Draw the diagram: New→Ready→Running, Running→Blocked→Ready, Running→Exit. Label each arrow!</div>
+    </div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-meta"><span class="marks-badge m3">3 marks</span><span class="hot-badge">🔥 HOT</span></div>
+      <div class="q-text">Define Process Control Block (PCB). Explain different fields of PCB.</div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-answer">
+      <h3>What is PCB?</h3>
+      <p>A <strong>Process Control Block (PCB)</strong> is a data structure maintained by the OS for every process. It stores all information needed to manage and track a process. Each process has exactly one PCB, identified by its <strong>PID (Process ID)</strong>.</p>
+      <h3>Fields of PCB</h3>
+      <ul>
+        <li><strong>Process ID (PID):</strong> Unique number to identify the process.</li>
+        <li><strong>Process State:</strong> Current state — New, Ready, Running, Blocked, Exit.</li>
+        <li><strong>Program Counter (PC):</strong> Address of the next instruction to execute.</li>
+        <li><strong>CPU Registers:</strong> All register values saved when process is not running.</li>
+        <li><strong>Memory Information:</strong> Base and limit registers, page tables.</li>
+        <li><strong>Priority:</strong> Scheduling priority of the process.</li>
+        <li><strong>I/O Status:</strong> List of open files and I/O devices used.</li>
+        <li><strong>Pointer:</strong> Pointer to parent process.</li>
+      </ul>
+      <div class="tip-box">PCB is like a "report card" of a process — it holds everything about the process so the OS can resume it from where it stopped.</div>
+    </div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-meta"><span class="marks-badge m3">3 marks</span></div>
+      <div class="q-text">Explain Context Switching with diagram and example.</div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-answer">
+      <h3>What is Context Switching?</h3>
+      <p><strong>Context switching</strong> is the process where the OS saves the state of the currently running process and loads the state of another process so the CPU can start executing it.</p>
+      <h3>Steps in Context Switch</h3>
+      <ol>
+        <li>OS stops Process P1 (time slice expired or I/O wait).</li>
+        <li>OS saves P1's PCB (program counter, registers, memory info).</li>
+        <li>OS loads P2's PCB from memory.</li>
+        <li>CPU starts executing P2 from where it left off.</li>
+      </ol>
+      <h3>Key Points</h3>
+      <ul>
+        <li>Context switching is <strong>pure overhead</strong> — no useful work is done during the switch.</li>
+        <li>The saved state is stored in PCB in kernel memory.</li>
+        <li>When P1 runs again, it continues <strong>exactly where it left off</strong>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-meta"><span class="marks-badge m3">3 marks</span></div>
+      <div class="q-text">Compare Process vs Thread / Explain types of threads.</div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-answer">
+      <h3>What is a Thread?</h3>
+      <p>A <strong>thread</strong> is a lightweight process — a single sequence of execution within a process. A process can have multiple threads sharing the same code and data but each thread has its own: <strong>Program Counter, Stack, Registers</strong>.</p>
+      <p><em>Example: MS Word is a process. Auto-save, spell-check, and rendering are separate threads inside it.</em></p>
+      <table class="ans-table">
+        <tr><th>Feature</th><th>Process</th><th>Thread</th></tr>
+        <tr><td>Weight</td><td>Heavyweight</td><td>Lightweight</td></tr>
+        <tr><td>Memory</td><td>Own address space</td><td>Shares process address space</td></tr>
+        <tr><td>Creation</td><td>Slow, costly</td><td>Fast, cheap</td></tr>
+        <tr><td>Communication</td><td>Via IPC (complex)</td><td>Direct (shared memory)</td></tr>
+        <tr><td>Context Switch</td><td>More overhead</td><td>Less overhead</td></tr>
+      </table>
+      <h3>Types of Threads</h3>
+      <ul>
+        <li><strong>User Level Thread (ULT):</strong> Managed by user-level library. Kernel is not aware. Fast but if one thread blocks, all block.</li>
+        <li><strong>Kernel Level Thread (KLT):</strong> Managed by OS kernel. Slower but truly parallel on multi-core systems.</li>
+        <li><strong>Hybrid Thread:</strong> Combines both. Programmer chooses how many kernel threads to use.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Q5 - FCFS/SJF numerical -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-meta"><span class="marks-badge m7">7 marks</span><span class="hot-badge">🔥 HOT</span></div>
+      <div class="q-text">Solve scheduling numericals using FCFS and SJF — draw Gantt chart, find avg waiting time and avg turnaround time.</div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-answer">
+      <h3>Key Formulas (Must Remember!)</h3>
+      <ul>
+        <li><strong>Turnaround Time (TAT)</strong> = Finish Time − Arrival Time</li>
+        <li><strong>Waiting Time (WT)</strong> = Turnaround Time − Burst Time</li>
+        <li><strong>Average TAT</strong> = Sum of all TAT ÷ Number of Processes</li>
+        <li><strong>Average WT</strong> = Sum of all WT ÷ Number of Processes</li>
+      </ul>
+      <h3>FCFS — Example (all arrive at 0)</h3>
+      <p>Processes A, B, C, D with burst times 10, 6, 2, 4 (FCFS order):</p>
+      <div class="algo-block">Gantt: |  A  |  B  |  C  | D  |
+          0   10   16   18  22
+
+A: TAT=10-0=10, WT=10-10=0
+B: TAT=16-0=16, WT=16-6=10
+C: TAT=18-0=18, WT=18-2=16
+D: TAT=22-0=22, WT=22-4=18
+
+Avg TAT = (10+16+18+22)/4 = 16.5
+Avg WT  = (0+10+16+18)/4  = 11.0</div>
+      <h3>SJF — Same Processes (sorted by burst time)</h3>
+      <p>Order: C(2), D(4), B(6), A(10)</p>
+      <div class="algo-block">Gantt: | C | D |  B  |    A    |
+          0   2   6   12       22
+
+C: TAT=2,  WT=0
+D: TAT=6,  WT=2
+B: TAT=12, WT=6
+A: TAT=22, WT=12
+
+Avg TAT = (2+6+12+22)/4 = 10.5
+Avg WT  = (0+2+6+12)/4  = 5.0</div>
+      <div class="tip-box">SJF always gives LOWER average waiting time than FCFS. Mention this in exam for extra marks!</div>
+    </div>
+  </div>
+
+  <!-- Q6 Round Robin -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-meta"><span class="marks-badge m7">7 marks</span><span class="hot-badge">🔥 HOT</span></div>
+      <div class="q-text">Solve scheduling using Round Robin (quantum=2 or 3) — draw Gantt chart, find avg waiting time and avg turnaround time.</div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-answer">
+      <h3>Round Robin (RR) — How it works</h3>
+      <p>Each process gets a fixed time quantum. If it finishes within the quantum → next process. If not → it goes to the end of the ready queue and waits for its next turn.</p>
+      <h3>Example: A=10, B=6, C=2, D=4 | Quantum=2 | All arrive at 0</h3>
+      <div class="algo-block">Execution Order: A→B→C→D→A→B→D→A→B→A→A
+Gantt:
+|A|B|C|D|A|B|D|A|B|A |A |
+0 2 4 6 8 10 12 14 16 18 20 22
+
+A: Finish=22, TAT=22, WT=22-10=12
+B: Finish=18, TAT=18, WT=18-6=12
+C: Finish=6,  TAT=6,  WT=6-2=4
+D: Finish=14, TAT=14, WT=14-4=10
+
+Avg TAT = (22+18+6+14)/4 = 15.0
+Avg WT  = (12+12+4+10)/4  = 9.5</div>
+      <h3>RR Advantages & Disadvantages</h3>
+      <ul>
+        <li>✅ Fair — each process gets equal CPU time</li>
+        <li>✅ Good for time-sharing systems</li>
+        <li>❌ High context switch overhead</li>
+        <li>❌ If quantum too small → too many switches. If too large → acts like FCFS.</li>
+      </ul>
+      <div class="tip-box">In RR: track remaining burst time for each process after each quantum. Carefully fill the Gantt chart step by step!</div>
+    </div>
+  </div>
+
+  <!-- Q7 preemptive/non-preemptive -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-meta"><span class="marks-badge m7">7 marks</span></div>
+      <div class="q-text">Explain Pre-emptive Scheduling algorithms (SRTN, Round Robin) with example.</div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-answer">
+      <h3>Preemptive Scheduling</h3>
+      <p>In preemptive scheduling, the OS can <strong>forcibly stop (preempt) a running process</strong> and give the CPU to another process. This happens when a higher priority process arrives or time quantum expires.</p>
+      <h3>SRTN (Shortest Remaining Time Next)</h3>
+      <p>Preemptive version of SJF. When a new process arrives, if its burst time < remaining time of current process, the current process is preempted.</p>
+      <div class="algo-block">Example: P1 arrives at 0 (burst=10), P2 arrives at 1 (burst=4)
+At time 1: P2 remaining=4 < P1 remaining=9 → preempt P1, run P2
+Gantt: |P1|  P2  |    P1    |
+        0  1   5          14
+
+P2: TAT=5-1=4, WT=0
+P1: TAT=14-0=14, WT=14-10=4</div>
+      <h3>Round Robin</h3>
+      <p>Preemptive — CPU is given for fixed time quantum. Process is preempted at end of quantum. (Already covered above.)</p>
+      <h3>Advantages of Preemptive</h3>
+      <ul>
+        <li>Better response time for short/high-priority processes</li>
+        <li>Suitable for interactive/time-sharing systems</li>
+        <li>Disadvantage: More context switches = more overhead</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Q8 Non-preemptive -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-meta"><span class="marks-badge m7">7 marks</span></div>
+      <div class="q-text">Explain Non Pre-emptive Scheduling algorithms (FCFS, SJF, Priority) with example.</div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-answer">
+      <h3>Non-Preemptive Scheduling</h3>
+      <p>Once a process gets the CPU, it <strong>runs until it finishes or blocks</strong> for I/O. The OS cannot force it to stop.</p>
+      <table class="ans-table">
+        <tr><th>Algorithm</th><th>Selection Criteria</th><th>Key Feature</th></tr>
+        <tr><td>FCFS</td><td>First arrived = first served</td><td>Simple, convoy effect possible</td></tr>
+        <tr><td>SJF</td><td>Shortest burst time first</td><td>Minimum avg wait, but starvation for long jobs</td></tr>
+        <tr><td>Priority</td><td>Highest priority first</td><td>Critical jobs get CPU fast, starvation for low priority</td></tr>
+      </table>
+      <h3>Starvation & Aging</h3>
+      <p><strong>Starvation:</strong> A low-priority/long process never gets CPU because others keep arriving. Solution: <strong>Aging</strong> — gradually increase priority of waiting processes over time.</p>
+    </div>
+  </div>
+
+  <!-- Q9 - Round Robin -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-meta"><span class="marks-badge m4">4 marks</span><span class="hot-badge">🔥 HOT</span></div>
+      <div class="q-text">Implement Round Robin scheduling for 5 processes (running times 10,2,6,8,4 seconds, quantum=3) — find avg turnaround and waiting time.</div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-answer">
+      <h3>Solution (all arrive at time 0)</h3>
+      <p>Processes: P1=10, P2=2, P3=6, P4=8, P5=4 | Quantum=3</p>
+      <div class="algo-block">Step-by-step execution:
+Time 0-3:   P1 runs 3 (remaining=7)
+Time 3-5:   P2 runs 2 (done!) ← P2 finishes at 5
+Time 5-8:   P3 runs 3 (remaining=3)
+Time 8-11:  P4 runs 3 (remaining=5)
+Time 11-14: P5 runs 3 (remaining=1)
+Time 14-17: P1 runs 3 (remaining=4)
+Time 17-20: P3 runs 3 (done!) ← P3 finishes at 20
+Time 20-23: P4 runs 3 (remaining=2)
+Time 23-24: P5 runs 1 (done!) ← P5 finishes at 24
+Time 24-27: P1 runs 3 (remaining=1)
+Time 27-29: P4 runs 2 (done!) ← P4 finishes at 29
+Time 29-30: P1 runs 1 (done!) ← P1 finishes at 30
+
+TAT: P1=30, P2=5, P3=20, P4=29, P5=24
+WT:  P1=20, P2=3, P3=14, P4=21, P5=20
+
+Avg TAT = (30+5+20+29+24)/5 = 21.6
+Avg WT  = (20+3+14+21+20)/5 = 15.6</div>
+    </div>
+  </div>
+
+  <!-- Q10 - Write about Race Condition -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-meta"><span class="marks-badge m4">4 marks</span></div>
+      <div class="q-text">Write about Race Condition in OS with example.</div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-answer">
+      <h3>Race Condition</h3>
+      <p>A <strong>race condition</strong> occurs when two or more processes access and modify shared data concurrently, and the final result depends on the order/timing of execution (who finishes last).</p>
+      <h3>Why It Occurs</h3>
+      <p>Three conditions needed: (1) Shared resource, (2) Concurrent execution, (3) No proper synchronization.</p>
+      <h3>Classic Example</h3>
+      <div class="algo-block">Shared Variable: int x = 5
+Both P1 and P2 execute: x = x + 1
+
+P1: Load x (=5), Context Switch happens!
+P2: Load x (=5), x = 5+1 = 6, Store x=6
+P1 resumes: x = 5+1 = 6, Store x=6
+
+Final x = 6  (WRONG!)
+Correct answer = 7 (both increments should happen)
+
+This wrong result due to race condition!</div>
+      <h3>Solution</h3>
+      <p>Use <strong>synchronization mechanisms</strong> like Mutex, Semaphores, or critical section protection to prevent race conditions.</p>
+    </div>
+  </div>
+
+  <!-- Q11 Process Life Cycle -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-meta"><span class="marks-badge m3">3 marks</span></div>
+      <div class="q-text">Explain Process Life Cycle in detail.</div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-answer">
+      <h3>Process Life Cycle</h3>
+      <p>The life cycle of a process goes through these stages from creation to termination:</p>
+      <ol>
+        <li><strong>Creation:</strong> Process is created by OS at boot time, or by a running process (fork()), or by user request.</li>
+        <li><strong>Ready:</strong> Process is loaded into memory and waiting for CPU.</li>
+        <li><strong>Execution:</strong> CPU is assigned. Process runs its instructions.</li>
+        <li><strong>Blocked:</strong> Process waits for I/O or some event. Cannot run.</li>
+        <li><strong>Termination:</strong> Process finishes normally or due to error. OS reclaims all its resources.</li>
+      </ol>
+      <h3>Process Termination Reasons</h3>
+      <ul>
+        <li><strong>Normal exit:</strong> Program completed its task.</li>
+        <li><strong>Error exit:</strong> Program detected a fatal error (e.g., file not found).</li>
+        <li><strong>Fatal error:</strong> Illegal instruction, division by zero.</li>
+        <li><strong>Killed by another process:</strong> Using kill() system call.</li>
+      </ul>
+    </div>
+  </div>
+
+</div><!-- end ch2 -->
+
+<!-- ===================== CHAPTER 3 ===================== -->
+<div class="chapter ch3" id="ch3">
+  <div class="chapter-header">
+    <span class="ch-icon">🔒</span>
+    <div class="ch-title">
+      <h2>Chapter 3 — Process Synchronization & Deadlock</h2>
+      <p>Critical section, semaphores, deadlock, Banker's algorithm</p>
+    </div>
+  </div>
+
+  <!-- Q1 Mutual Exclusion, Critical Section, Race Condition -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-meta"><span class="marks-badge m4">4 marks</span><span class="hot-badge">🔥 HOT</span></div>
+      <div class="q-text">Define: Mutual Exclusion, Critical Section, Race Condition.</div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-answer">
+      <h3>1. Race Condition</h3>
+      <p>When two or more processes access shared data concurrently and the final result depends on the timing of execution, it's called a <strong>race condition</strong>.</p>
+      <p><em>Example: Two processes both doing x = x+1 on same variable can give wrong result.</em></p>
+      <h3>2. Critical Section</h3>
+      <p>The part of a program where shared resources (variables, files, memory) are accessed is called the <strong>critical section</strong>. <strong>Only one process should be in the critical section at a time.</strong></p>
+      <p><em>Think of it like a single-person bathroom — only one person can use it at a time!</em></p>
+      <h3>3. Mutual Exclusion</h3>
+      <p><strong>Mutual Exclusion</strong> is the way of ensuring that if one process is in the critical section, no other process can enter it at the same time.</p>
+      <h3>4 Conditions for a Valid Solution</h3>
+      <ul>
+        <li><strong>Mutual Exclusion:</strong> Only one process in critical section.</li>
+        <li><strong>Progress:</strong> No process outside critical region blocks others.</li>
+        <li><strong>Bounded Waiting:</strong> No process waits forever.</li>
+        <li><strong>Arbitrary Speed:</strong> No assumption about process speed.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Q2 Readers Writers -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-meta"><span class="marks-badge m7">7 marks</span><span class="hot-badge">🔥 HOT</span></div>
+      <div class="q-text">Explain Readers & Writers Problem with algorithm (semaphore-based solution).</div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-answer">
+      <h3>Problem Statement</h3>
+      <p>A shared database is accessed by two types of processes:</p>
+      <ul>
+        <li><strong>Readers</strong> — only read the data (do NOT modify).</li>
+        <li><strong>Writers</strong> — write/update the data.</li>
+      </ul>
+      <h3>Rules</h3>
+      <ul>
+        <li>✅ Multiple readers can read simultaneously.</li>
+        <li>✅ Only ONE writer can write at a time.</li>
+        <li>❌ When a writer is writing → NO reader can read.</li>
+        <li>❌ When readers are reading → NO writer can write.</li>
+      </ul>
+      <h3>Semaphore Solution</h3>
+      <div class="algo-block">Variables:
+  semaphore mutex = 1;   // controls reader_count
+  semaphore db    = 1;   // controls database access
+  int reader_count = 0;  // number of active readers
+
+Reader():
+  down(&mutex)              // lock reader_count
+  reader_count++            // one more reader
+  if (reader_count == 1)    // FIRST reader?
+    down(&db)               // block writers
+  up(&mutex)
+  read_database()           // READ!
+  down(&mutex)
+  reader_count--
+  if (reader_count == 0)    // LAST reader?
+    up(&db)                 // allow writers
+  up(&mutex)
+
+Writer():
+  down(&db)      // wait until no readers/writers
+  write_database()
+  up(&db)</div>
+      <div class="tip-box">Key insight: First reader locks the DB from writers. Last reader unlocks it. Multiple readers can be inside simultaneously.</div>
+    </div>
+  </div>
+
+  <!-- Q3 Producer Consumer -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-meta"><span class="marks-badge m7">7 marks</span></div>
+      <div class="q-text">Explain Producer Consumer problem using Semaphore with algorithm.</div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-answer">
+      <h3>Problem Statement</h3>
+      <p>A <strong>Producer</strong> produces items and puts them in a shared buffer. A <strong>Consumer</strong> takes items from the buffer. Problems:</p>
+      <ul>
+        <li>Producer must not add if buffer is <strong>full</strong>.</li>
+        <li>Consumer must not remove if buffer is <strong>empty</strong>.</li>
+        <li>Both cannot access buffer <strong>simultaneously</strong>.</li>
+      </ul>
+      <h3>Semaphore Solution</h3>
+      <div class="algo-block">Semaphores:
+  mutex = 1    // mutual exclusion (only 1 in buffer at a time)
+  empty = N    // counts empty slots (starts = N)
+  full  = 0    // counts full slots (starts = 0)
+
+Producer():
+  item = produce_item()
+  down(&empty)     // wait if buffer full
+  down(&mutex)     // enter critical section
+  insert_item(item)
+  up(&mutex)       // exit critical section
+  up(&full)        // one more full slot
+
+Consumer():
+  down(&full)      // wait if buffer empty
+  down(&mutex)     // enter critical section
+  item = remove_item()
+  up(&mutex)       // exit critical section
+  up(&empty)       // one more empty slot
+  consume_item(item)</div>
+      <p><em>Real Example: Keyboard (producer) → Input buffer → Text Editor (consumer)</em></p>
+    </div>
+  </div>
+
+  <!-- Q4 Dining Philosopher -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-meta"><span class="marks-badge m7">7 marks</span></div>
+      <div class="q-text">Explain Dining Philosopher Problem with algorithm.</div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-answer">
+      <h3>Problem Setup</h3>
+      <p>5 philosophers sit at a round table. Each has a plate. There is 1 fork between each pair of philosophers (5 forks total). A philosopher needs <strong>2 forks to eat</strong> (left + right). Philosophers alternate between <strong>thinking</strong> and <strong>eating</strong>.</p>
+      <h3>The Challenge</h3>
+      <p>If all 5 philosophers pick up their left fork simultaneously → <strong>Deadlock!</strong> No one can eat.</p>
+      <h3>Solution Algorithm (with states)</h3>
+      <div class="algo-block">States: THINKING (0), HUNGRY (1), EATING (2)
+Array: state[5], semaphore s[5], mutex
+
+philosopher(i):
+  think()
+  take_forks(i)   // try to pick up 2 forks
+  eat()
+  put_forks(i)    // put forks back
+
+take_forks(i):
+  down(&mutex)
+  state[i] = HUNGRY
+  test(i)         // can I eat?
+  up(&mutex)
+  down(&s[i])     // block if I can't eat
+
+test(i):
+  if state[i]==HUNGRY AND 
+     state[LEFT]!=EATING AND state[RIGHT]!=EATING:
+    state[i] = EATING
+    up(&s[i])     // I can eat!
+
+put_forks(i):
+  down(&mutex)
+  state[i] = THINKING
+  test(LEFT)      // wake up left if they can eat
+  test(RIGHT)     // wake up right if they can eat
+  up(&mutex)</div>
+    </div>
+  </div>
+
+  <!-- Q5 Deadlock 4 conditions -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-meta"><span class="marks-badge m4">4 marks</span><span class="hot-badge">🔥 HOT</span></div>
+      <div class="q-text">Define Deadlock. Explain four necessary conditions for Deadlock (Mutual Exclusion, Hold & Wait, No Preemption, Circular Wait).</div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-answer">
+      <h3>What is Deadlock?</h3>
+      <p>A <strong>deadlock</strong> is a situation where a set of processes are all blocked, each waiting for a resource held by another process in the set. None can proceed.</p>
+      <p><em>Example: P1 holds R1 and wants R2. P2 holds R2 and wants R1. Both wait forever!</em></p>
+      <h3>4 Necessary Conditions (ALL must be true for deadlock)</h3>
+      <ol>
+        <li><strong>Mutual Exclusion:</strong> At least one resource must be held in a non-shareable mode (only one process can use it at a time).</li>
+        <li><strong>Hold and Wait:</strong> A process holding at least one resource is waiting to acquire additional resources held by other processes.</li>
+        <li><strong>No Preemption:</strong> Resources cannot be forcibly taken away from a process — they must be released voluntarily.</li>
+        <li><strong>Circular Wait:</strong> There is a circular chain of processes P1→P2→P3→…→P1, where each process is waiting for a resource held by the next.</li>
+      </ol>
+      <div class="tip-box">Memory trick: <strong>MHNC</strong> — Mutual exclusion, Hold & wait, No preemption, Circular wait. If you break ANY ONE condition → no deadlock!</div>
+    </div>
+  </div>
+
+  <!-- Q6 Banker's Algorithm -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-meta"><span class="marks-badge m7">7 marks</span><span class="hot-badge">🔥 HOT</span></div>
+      <div class="q-text">Explain Banker's Algorithm with example — Find Need matrix, check safe state, process request.</div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-answer">
+      <h3>What is Banker's Algorithm?</h3>
+      <p>Banker's algorithm is a <strong>deadlock avoidance</strong> algorithm. Before granting a resource request, it checks if granting leads to a <strong>safe state</strong>. If safe → grant. If unsafe → deny.</p>
+      <h3>Key Matrices</h3>
+      <ul>
+        <li><strong>Allocation:</strong> Resources currently held by each process.</li>
+        <li><strong>Max:</strong> Maximum resources each process may need.</li>
+        <li><strong>Need = Max − Allocation</strong> (Resources still needed)</li>
+        <li><strong>Available:</strong> Resources currently free.</li>
+      </ul>
+      <h3>Standard Example (5 processes, 4 resources A,B,C,D)</h3>
+      <div class="algo-block">Available = (1,5,2,0)
+
+Process | Allocation    | Max          | Need
+        | A  B  C  D   | A  B  C  D  | A  B  C  D
+P0      | 0  0  1  2   | 0  0  1  2  | 0  0  0  0
+P1      | 1  0  0  0   | 1  7  5  0  | 0  7  5  0
+P2      | 1  3  5  4   | 2  3  5  6  | 1  0  0  2
+P3      | 0  6  3  2   | 0  6  5  2  | 0  0  2  0
+P4      | 0  0  1  4   | 0  6  5  6  | 0  6  4  2
+
+Safe sequence check:
+Step 1: Available=(1,5,2,0). P0 need=(0,0,0,0) ≤ Available? YES!
+        Run P0. Available += P0 alloc = (1,5,3,2)
+Step 2: P2 need=(1,0,0,2) ≤ (1,5,3,2)? YES!
+        Run P2. Available = (2,8,8,6)
+Step 3: P3 need=(0,0,2,0) ≤ (2,8,8,6)? YES → Run P3
+Step 4: P4 need=(0,6,4,2) ≤ check → YES → Run P4
+Step 5: P1 need=(0,7,5,0) ≤ check → YES → Run P1
+
+Safe Sequence: P0 → P2 → P3 → P4 → P1 ✅ SAFE STATE</div>
+      <div class="tip-box">Always compute Need = Max − Allocation FIRST. Then find a process whose Need ≤ Available. That process runs, frees its resources, and repeat.</div>
+    </div>
+  </div>
+
+  <!-- Q7 Deadlock Detection Recovery -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-meta"><span class="marks-badge m7">7 marks</span></div>
+      <div class="q-text">Explain Deadlock Detection & Recovery in detail with resource allocation graph.</div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-answer">
+      <h3>Deadlock Detection</h3>
+      <p>OS lets deadlock happen, then detects and recovers. Uses <strong>Resource Allocation Graph (RAG)</strong>.</p>
+      <ul>
+        <li><strong>Process → Resource:</strong> Process requesting resource (arrow from P to R).</li>
+        <li><strong>Resource → Process:</strong> Resource allocated to process (arrow from R to P).</li>
+        <li><strong>Cycle in RAG = Deadlock</strong> (for single-instance resources).</li>
+      </ul>
+      <h3>Detection Algorithm (Single Resource)</h3>
+      <p>Start from each node. Follow arcs. If a node appears twice in the path → deadlock cycle exists.</p>
+      <h3>Recovery from Deadlock</h3>
+      <ol>
+        <li><strong>Recovery through Preemption:</strong> Temporarily take a resource away from a process and give it to another. (Difficult for most resources.)</li>
+        <li><strong>Recovery through Rollback:</strong> Save process checkpoints periodically. When deadlock detected, roll back one process to a safe checkpoint and release its resources.</li>
+        <li><strong>Recovery through Killing Processes:</strong> Kill one or more deadlocked processes. After each kill, check if deadlock is resolved. Stop when resolved.</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- Q8 Peterson's Solution -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-meta"><span class="marks-badge m3">3 marks</span></div>
+      <div class="q-text">Explain Peterson's Solution using algorithm.</div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-answer">
+      <h3>Peterson's Solution</h3>
+      <p>A <strong>software-based</strong> solution for the critical section problem for <strong>two processes</strong>. It uses two shared variables: <code>interested[2]</code> and <code>turn</code>.</p>
+      <div class="algo-block">Shared: int turn; 
+        boolean interested[2] = {false, false};
+
+enter_region(process):
+  other = 1 - process
+  interested[process] = TRUE   // I want to enter
+  turn = process                // but you can go first
+  while (turn == process AND interested[other] == TRUE):
+    wait                        // busy wait
+
+leave_region(process):
+  interested[process] = FALSE  // I'm done</div>
+      <h3>Properties Satisfied</h3>
+      <ul>
+        <li>✅ Mutual Exclusion: Only one process in critical section</li>
+        <li>✅ Progress: No unnecessary blocking</li>
+        <li>✅ Bounded Waiting: No starvation</li>
+        <li>❌ Uses busy waiting (wastes CPU)</li>
+        <li>❌ Works only for 2 processes</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Q9 Deadlock Prevention -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-meta"><span class="marks-badge m7">7 marks</span></div>
+      <div class="q-text">Explain Deadlock Avoidance and Prevention with example.</div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-answer">
+      <h3>Deadlock Prevention</h3>
+      <p>Break one of the 4 necessary conditions so deadlock can never occur:</p>
+      <ol>
+        <li><strong>Attack Mutual Exclusion:</strong> Make resources shareable. (Not always possible — e.g., printer cannot be shared.)</li>
+        <li><strong>Attack Hold & Wait:</strong> Process must request ALL resources before starting. If any not available, it waits without holding anything.</li>
+        <li><strong>Attack No Preemption:</strong> If a process holding resources requests a new one that's unavailable, OS takes away all its current resources.</li>
+        <li><strong>Attack Circular Wait:</strong> Assign numbers to all resources. Processes must request resources in strictly increasing numerical order. This breaks circular wait.</li>
+      </ol>
+      <h3>Deadlock Avoidance</h3>
+      <p>OS uses extra information to ensure it never enters an unsafe state. The <strong>Banker's Algorithm</strong> is used — before granting a request, OS checks if the resulting state is safe.</p>
+      <p><strong>Safe State:</strong> A state where there exists an ordering of processes that can all finish, even if they each request their maximum remaining resources.</p>
+    </div>
+  </div>
+
+  <!-- Q10 IPC -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-meta"><span class="marks-badge m3">3 marks</span></div>
+      <div class="q-text">Explain IPC (Inter Process Communication) in detail.</div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-answer">
+      <h3>What is IPC?</h3>
+      <p><strong>Inter-Process Communication (IPC)</strong> is the mechanism that allows processes to communicate and synchronize while executing concurrently. Since processes have separate memory spaces, they need special methods to exchange data.</p>
+      <h3>Two Models of IPC</h3>
+      <ol>
+        <li><strong>Shared Memory:</strong> Two processes share a portion of memory. One writes, another reads. Fast but needs synchronization. <em>Like two people editing the same Google Doc.</em></li>
+        <li><strong>Message Passing:</strong> Processes send/receive messages via the OS kernel. Safer but slower. <em>Like sending an email or WhatsApp message.</em></li>
+      </ol>
+      <h3>IPC Mechanisms</h3>
+      <ul>
+        <li><strong>Pipes:</strong> One-way communication between parent/child processes.</li>
+        <li><strong>Semaphores:</strong> Synchronization to control access to shared resources.</li>
+        <li><strong>Message Queues:</strong> Process can send/receive structured messages.</li>
+        <li><strong>Signals:</strong> Software interrupts to notify a process of an event.</li>
+      </ul>
+    </div>
+  </div>
+
+</div><!-- end ch3 -->
+
+<!-- ===================== CHAPTER 4 ===================== -->
+<div class="chapter ch4" id="ch4">
+  <div class="chapter-header">
+    <span class="ch-icon">🧠</span>
+    <div class="ch-title">
+      <h2>Chapter 4 — Memory Management</h2>
+      <p>Paging, page replacement, memory allocation, fragmentation</p>
+    </div>
+  </div>
+
+  <!-- Q1 First-fit Best-fit Worst-fit -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-meta"><span class="marks-badge m7">7 marks</span><span class="hot-badge">🔥 HOT</span></div>
+      <div class="q-text">Numerical: First-fit, Best-fit, Worst-fit — 6 partitions (300,600,350,200,750,125 KB), place processes (115,500,358,200,375 KB). Which is most efficient?</div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-answer">
+      <h3>Memory Allocation Algorithms</h3>
+      <ul>
+        <li><strong>First-Fit:</strong> Allocate the FIRST hole that is large enough. Fastest.</li>
+        <li><strong>Best-Fit:</strong> Allocate the SMALLEST hole that is large enough. Least wastage.</li>
+        <li><strong>Worst-Fit:</strong> Allocate the LARGEST hole. Leaves largest remaining holes.</li>
+      </ul>
+      <h3>Solution</h3>
+      <div class="algo-block">Partitions: 300 | 600 | 350 | 200 | 750 | 125 KB
+Processes:  115   500   358   200   375 KB
+
+FIRST-FIT:
+P1(115) → 300 (remaining 185)
+P2(500) → 600 (remaining 100)
+P3(358) → 750 (remaining 392)
+P4(200) → 350 (remaining 150)
+P5(375) → FAILS (no hole ≥ 375)  ← 1 process unallocated
+
+BEST-FIT:
+P1(115) → 125 (remaining 10) ← smallest that fits
+P2(500) → 600 (remaining 100)
+P3(358) → 750 (remaining 392)  
+P4(200) → 200 (remaining 0)
+P5(375) → 392... wait → 350? NO(too small) → 392 YES!
+All 5 allocated! ✅
+
+WORST-FIT:
+P1(115) → 750 (remaining 635)
+P2(500) → 635 (remaining 135)
+P3(358) → FAILS (no hole ≥ 358 left)
+
+Result: Best-Fit is most efficient here!</div>
+      <div class="tip-box">Best-Fit gives least memory waste. Worst-Fit gives largest leftover holes (good for future large processes). First-Fit is fastest to compute.</div>
+    </div>
+  </div>
+
+  <!-- Q2 Page Replacement FIFO + Optimal -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-meta"><span class="marks-badge m7">7 marks</span><span class="hot-badge">🔥 HOT</span></div>
+      <div class="q-text">Page Replacement: Calculate page faults using FIFO & Optimal for reference string with 3 or 4 frames.</div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-answer">
+      <h3>Page Fault = Page not in memory, must load from disk</h3>
+      <h3>Reference String: 7,0,1,2,0,3,0,4,2,3,0,3,2 | 3 Frames</h3>
+      <h3>FIFO (First In First Out)</h3>
+      <div class="algo-block">FIFO: Oldest page in memory is replaced first.
+
+Ref: 7  0  1  2  0  3  0  4  2  3  0  3  2
+F1:  7  7  7  2  2  2  2  4  4  4  0  0  0
+F2:  -  0  0  0  0  3  3  3  2  2  2  2  2
+F3:  -  -  1  1  1  1  0  0  0  3  3  3  3
+PF:  ✗  ✗  ✗  ✗  ✓  ✗  ✗  ✗  ✗  ✗  ✗  ✓  ✓
+
+Page Faults = 9</div>
+      <h3>Optimal Page Replacement</h3>
+      <div class="algo-block">Optimal: Replace page that will NOT be used for the longest time.
+
+Ref: 7  0  1  2  0  3  0  4  2  3  0  3  2
+F1:  7  7  7  2  2  2  2  2  2  2  2  2  2
+F2:  -  0  0  0  0  0  0  4  4  4  0  0  0
+F3:  -  -  1  1  1  3  3  3  3  3  3  3  3
+PF:  ✗  ✗  ✗  ✗  ✓  ✗  ✓  ✗  ✓  ✓  ✗  ✓  ✓
+
+Page Faults = 6 (better than FIFO!)</div>
+      <div class="tip-box">Optimal gives the MINIMUM possible page faults but is NOT implementable (needs future knowledge). It's used only as a benchmark. In exam: always show the frame table step by step and mark ✗ for fault, ✓ for hit.</div>
+    </div>
+  </div>
+
+  <!-- Q3 FIFO + LRU -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-meta"><span class="marks-badge m7">7 marks</span><span class="hot-badge">🔥 HOT</span></div>
+      <div class="q-text">Page Replacement: Calculate page faults using FIFO & LRU for reference string with 3 or 4 frames.</div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-answer">
+      <h3>LRU (Least Recently Used)</h3>
+      <p>Replace the page that has NOT been used for the longest time.</p>
+      <div class="algo-block">Ref String: 7,0,1,2,0,3,0,4,2,3,0,3,2 | 3 Frames
+
+LRU:
+Ref: 7  0  1  2  0  3  0  4  2  3  0  3  2
+F1:  7  7  7  2  2  2  2  4  4  4  0  0  0
+F2:  -  0  0  0  0  0  0  0  2  2  2  2  2
+F3:  -  -  1  1  1  3  3  3  3  3  3  3  3
+PF:  ✗  ✗  ✗  ✗  ✓  ✗  ✓  ✗  ✗  ✓  ✗  ✓  ✓  
+
+(At each fault: replace page not used for longest time)
+Page Faults = 8</div>
+      <h3>Comparison</h3>
+      <table class="ans-table">
+        <tr><th>Algorithm</th><th>Replaces</th><th>Page Faults</th><th>Implementable?</th></tr>
+        <tr><td>FIFO</td><td>Oldest loaded</td><td>Most (9)</td><td>Yes (simple)</td></tr>
+        <tr><td>LRU</td><td>Least recently used</td><td>Medium (8)</td><td>Yes (complex)</td></tr>
+        <tr><td>Optimal</td><td>Farthest future use</td><td>Least (6)</td><td>No (theoretical)</td></tr>
+      </table>
+      <div class="tip-box">Belady's Anomaly: In FIFO, increasing frames can sometimes INCREASE page faults! This does NOT happen in Optimal or LRU.</div>
+    </div>
+  </div>
+
+  <!-- Q4 Paging -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-meta"><span class="marks-badge m4">4 marks</span><span class="hot-badge">🔥 HOT</span></div>
+      <div class="q-text">Explain Paging technique with diagram.</div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-answer">
+      <h3>What is Paging?</h3>
+      <p><strong>Paging</strong> is a memory management technique where the process is divided into fixed-size <strong>pages</strong>, and physical memory is divided into fixed-size <strong>frames</strong>. One page fits into one frame.</p>
+      <h3>Key Points</h3>
+      <ul>
+        <li>Pages and frames have the <strong>same size</strong> (e.g., 4 KB).</li>
+        <li>Pages can be stored in <strong>non-contiguous</strong> frames — no external fragmentation!</li>
+        <li>Only required pages are loaded into RAM (Demand Paging).</li>
+        <li>OS maintains a <strong>Page Table</strong> to map virtual page numbers to physical frame numbers.</li>
+      </ul>
+      <h3>Address Translation (MMU)</h3>
+      <p>CPU generates a <strong>logical address</strong> = (Page Number + Offset). MMU looks up page table, gets frame number, and creates <strong>physical address</strong> = (Frame Number + Offset).</p>
+      <h3>Page Fault</h3>
+      <p>If a required page is NOT in memory → <strong>Page Fault</strong> → OS loads page from disk → updates page table → process continues.</p>
+      <div class="tip-box">Draw: CPU → Logical Address (P|D) → Page Table → Physical Address (F|D) → RAM</div>
+    </div>
+  </div>
+
+  <!-- Q5 Fixed and Variable Partition -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-meta"><span class="marks-badge m4">4 marks</span></div>
+      <div class="q-text">Explain Fixed Partition and Variable (Dynamic) Partition memory allocation with example.</div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-answer">
+      <h3>Fixed Partition</h3>
+      <p>Memory is divided into <strong>fixed-size partitions</strong> at system start. Each partition holds exactly one process.</p>
+      <ul>
+        <li>✅ Simple to implement</li>
+        <li>❌ <strong>Internal Fragmentation:</strong> If process is smaller than partition, remaining space is wasted. <em>Example: 200KB partition for 100KB process → 100KB wasted.</em></li>
+        <li>❌ Number of processes limited by number of partitions</li>
+      </ul>
+      <h3>Variable (Dynamic) Partition</h3>
+      <p>Process is allocated exactly as much memory as it needs. Partitions are created dynamically.</p>
+      <ul>
+        <li>✅ No internal fragmentation</li>
+        <li>❌ <strong>External Fragmentation:</strong> Over time, holes appear scattered around memory. A large process can't fit even if total free space is enough.</li>
+        <li>Solution: <strong>Compaction</strong> — move all processes to one end to create one large hole.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Q6 Logical vs Physical Address -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-meta"><span class="marks-badge m3">3 marks</span><span class="hot-badge">🔥 HOT</span></div>
+      <div class="q-text">Compare Logical Address and Physical Address.</div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-answer">
+      <table class="ans-table">
+        <tr><th>Feature</th><th>Logical Address</th><th>Physical Address</th></tr>
+        <tr><td>Generated by</td><td>CPU (program)</td><td>MMU (hardware)</td></tr>
+        <tr><td>Also called</td><td>Virtual Address</td><td>Real Address</td></tr>
+        <tr><td>Visible to</td><td>User program</td><td>RAM/Hardware only</td></tr>
+        <tr><td>Unique?</td><td>Per process (can be same in 2 processes)</td><td>Always unique in RAM</td></tr>
+        <tr><td>Translation</td><td>Needs MMU to convert</td><td>Actual RAM location</td></tr>
+      </table>
+      <p><em>Translation: CPU → Logical Address → MMU → Physical Address → RAM</em></p>
+      <div class="tip-box">Why separation? For <strong>security</strong> (process can't access others' memory), <strong>flexibility</strong> (process doesn't know actual RAM), and <strong>multitasking</strong> (multiple programs run safely).</div>
+    </div>
+  </div>
+
+  <!-- Q7 Virtual Memory -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-meta"><span class="marks-badge m4">4 marks</span></div>
+      <div class="q-text">Explain Virtual Memory in detail / Demand Paging.</div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-answer">
+      <h3>Virtual Memory</h3>
+      <p>Virtual memory allows a process to use more memory than the actual physical RAM available. The <strong>OS keeps only the currently-needed pages in RAM and stores the rest on disk</strong>.</p>
+      <h3>Demand Paging</h3>
+      <p>Pages are loaded into memory <strong>only when demanded/needed</strong> by the CPU, not all at once.</p>
+      <h3>How it Works (Step by Step)</h3>
+      <ol>
+        <li>CPU tries to access a page.</li>
+        <li>MMU checks the page table.</li>
+        <li>If <strong>present/absent bit = 0</strong> → <strong>Page Fault!</strong></li>
+        <li>OS blocks the process and looks for the page on disk.</li>
+        <li>OS finds a free frame in RAM (may need to swap one out).</li>
+        <li>Page is loaded from disk to RAM.</li>
+        <li>Page table updated. Process resumes.</li>
+      </ol>
+      <h3>Advantages</h3>
+      <ul>
+        <li>Run programs larger than physical RAM.</li>
+        <li>More processes can run simultaneously.</li>
+        <li>Faster startup (only required pages loaded).</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Q8 Fragmentation -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-meta"><span class="marks-badge m3">3 marks</span></div>
+      <div class="q-text">Explain Fragmentation — Internal and External fragmentation with diagram.</div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-answer">
+      <h3>Fragmentation</h3>
+      <p>Fragmentation is the phenomenon where memory is wasted because free space exists but cannot be used effectively.</p>
+      <h3>Internal Fragmentation</h3>
+      <p>Wasted memory <strong>inside</strong> an allocated partition. Occurs in Fixed Partition systems. <em>Example: A process of 100KB gets a 200KB partition → 100KB wasted inside.</em></p>
+      <h3>External Fragmentation</h3>
+      <p>Wasted memory <strong>outside</strong> allocated partitions. Total free memory is enough, but it's scattered in small non-contiguous holes. Occurs in Variable Partition systems. <em>Example: 400KB free but split as 200+100+100KB → a 300KB process can't fit!</em></p>
+      <h3>Solutions</h3>
+      <ul>
+        <li>Internal Fragmentation → Use <strong>Paging</strong> (pages fit exactly in frames)</li>
+        <li>External Fragmentation → Use <strong>Compaction</strong> (move processes together) or <strong>Paging/Segmentation</strong></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Q9 Swapping -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-meta"><span class="marks-badge m3">3 marks</span></div>
+      <div class="q-text">Explain Swapping in detail.</div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-answer">
+      <h3>Swapping</h3>
+      <p><strong>Swapping</strong> is the process of temporarily moving a process from main memory (RAM) to secondary storage (disk), and later bringing it back, to free up RAM for other processes.</p>
+      <h3>Steps</h3>
+      <ol>
+        <li>OS decides to swap out a process (e.g., P1 is waiting for I/O).</li>
+        <li>P1's entire memory image is saved to a special area on disk called the <strong>swap space</strong>.</li>
+        <li>Another process (P2) is loaded into RAM and runs.</li>
+        <li>When P1 needs CPU again, it is swapped back into RAM.</li>
+      </ol>
+      <h3>Key Points</h3>
+      <ul>
+        <li>Swapping allows more processes than RAM can hold at once.</li>
+        <li>Swap space is on disk — much slower than RAM.</li>
+        <li>Modern systems use <strong>paging</strong> instead of full swapping (only swap individual pages).</li>
+      </ul>
+    </div>
+  </div>
+
+</div><!-- end ch4 -->
+
+<!-- ===================== CHAPTER 5 ===================== -->
+<div class="chapter ch5" id="ch5">
+  <div class="chapter-header">
+    <span class="ch-icon">💾</span>
+    <div class="ch-title">
+      <h2>Chapter 5 — File System & Disk Management</h2>
+      <p>File operations, disk scheduling, RAID, directory structures</p>
+    </div>
+  </div>
+
+  <!-- Q1 Disk Scheduling FIFO SSTF -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-meta"><span class="marks-badge m7">7 marks</span><span class="hot-badge">🔥 HOT</span></div>
+      <div class="q-text">Disk scheduling numerical: FIFO and SSTF — imaginary disk 51 cylinders, head at cylinder 11, requests: 1,36,16,34,9,12. Find total head movement.</div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-answer">
+      <h3>FCFS/FIFO — Serve requests in arrival order</h3>
+      <div class="algo-block">Head starts at: 11
+Request order: 1, 36, 16, 34, 9, 12
+
+Movement:
+11→1  = 10
+1→36  = 35
+36→16 = 20
+16→34 = 18
+34→9  = 25
+9→12  = 3
+
+Total = 10+35+20+18+25+3 = 111 cylinders</div>
+      <h3>SSTF — Serve closest request first</h3>
+      <div class="algo-block">Head starts at: 11
+Pending: 1, 36, 16, 34, 9, 12
+
+Step 1: Head=11. Closest=12 (diff=1). Move to 12.
+Step 2: Head=12. Closest=9 (diff=3). Move to 9.
+Step 3: Head=9.  Closest=16 (diff=7... or 1=8). Move to 16.
+Step 4: Head=16. Closest=34 (diff=18). Move to 34.
+Step 5: Head=34. Closest=36 (diff=2). Move to 36.
+Step 6: Head=36. Last=1. Move to 1.
+
+Movement:
+11→12=1, 12→9=3, 9→16=7, 16→34=18, 34→36=2, 36→1=35
+Total = 1+3+7+18+2+35 = 66 cylinders</div>
+      <div class="tip-box">SSTF gives much lower head movement than FCFS but can cause starvation (requests far away may never be served). Always draw the movement as a number line!</div>
+    </div>
+  </div>
+
+  <!-- Q2 LOOK and SCAN -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-meta"><span class="marks-badge m7">7 marks</span></div>
+      <div class="q-text">Disk scheduling numerical: LOOK and SCAN — same disk problem (head at 11, requests: 1,36,16,34,9,12).</div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-answer">
+      <h3>SCAN (Elevator Algorithm)</h3>
+      <p>Head moves in one direction serving requests, goes all the way to the end, then reverses direction.</p>
+      <div class="algo-block">Head=11, Moving UP. Pending: 1,9,12,16,34,36 (sorted)
+
+UP: 11→12→16→34→36→50 (end)
+DOWN: 50→9→1
+
+Movement:
+11→12=1, 12→16=4, 16→34=18, 34→36=2, 36→50=14, 50→9=41, 9→1=8
+Total = 1+4+18+2+14+41+8 = 88 cylinders</div>
+      <h3>LOOK Algorithm</h3>
+      <p>Like SCAN but the head doesn't go all the way to the end — it only goes as far as the last request in each direction.</p>
+      <div class="algo-block">Head=11, Moving UP. Pending sorted: 1,9,12,16,34,36
+
+UP: 11→12→16→34→36 (stop here — no more UP requests)
+DOWN: 36→9→1
+
+Movement:
+11→12=1, 12→16=4, 16→34=18, 34→36=2, 36→9=27, 9→1=8
+Total = 1+4+18+2+27+8 = 60 cylinders</div>
+      <div class="tip-box">LOOK = SCAN but stops at last request instead of disk end. C-LOOK = circular version (after last UP request, jump to smallest and go UP again). C-LOOK total for this example = 68.</div>
+    </div>
+  </div>
+
+  <!-- Q3 File Operations -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-meta"><span class="marks-badge m7">7 marks</span><span class="hot-badge">🔥 HOT</span></div>
+      <div class="q-text">Explain various File Operations (Create, Open, Read, Write, Seek, Delete, Close).</div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-answer">
+      <h3>File Operations</h3>
+      <ol>
+        <li><strong>Create:</strong> OS creates a new file, allocates disk space, and adds an entry in the directory. Sets file attributes.</li>
+        <li><strong>Open:</strong> OS fetches the file's attributes and disk location into memory. Returns a <em>file descriptor</em> to the program. Required before reading/writing.</li>
+        <li><strong>Read:</strong> Data is read from the file at the current file pointer position and placed into a buffer in memory.</li>
+        <li><strong>Write:</strong> Data from a memory buffer is written to the file at the current file pointer position. File grows if writing at end.</li>
+        <li><strong>Seek:</strong> Repositions the file pointer to a specific location (for random access files). Does not transfer data itself.</li>
+        <li><strong>Delete:</strong> OS removes the file's directory entry and releases the disk space. File is no longer accessible.</li>
+        <li><strong>Close:</strong> OS writes back any modified attributes/data, releases the file descriptor. File should be closed when done to free system resources.</li>
+      </ol>
+      <div class="tip-box">Remember order for using a file: Create → Open → Read/Write/Seek → Close → Delete (when no longer needed).</div>
+    </div>
+  </div>
+
+  <!-- Q4 File Attributes -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-meta"><span class="marks-badge m7">7 marks</span></div>
+      <div class="q-text">Explain various File Attributes (Name, Identifier, Type, Location, Size, Protection, Time).</div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-answer">
+      <h3>File Attributes (Metadata)</h3>
+      <p>File attributes are information the OS stores about each file (not the file content itself).</p>
+      <ol>
+        <li><strong>Name:</strong> Human-readable name of the file. Stored as string. <em>Example: report.pdf</em></li>
+        <li><strong>Identifier:</strong> Unique tag/number (inode number) used by OS to identify the file internally.</li>
+        <li><strong>Type:</strong> File extension indicates type. <em>Example: .txt, .jpg, .exe</em></li>
+        <li><strong>Location:</strong> Pointer to where on disk the file data is stored (physical address).</li>
+        <li><strong>Size:</strong> Current size of the file in bytes. Also may include maximum allowed size.</li>
+        <li><strong>Protection:</strong> Access control info — who can read, write, or execute the file (owner, group, others).</li>
+        <li><strong>Time & Date:</strong> Three timestamps: creation time, last modified time, last accessed time. Useful for backups.</li>
+      </ol>
+      <p><em>All these attributes together form the file's <strong>metadata</strong>, stored in the directory entry or inode.</em></p>
+    </div>
+  </div>
+
+  <!-- Q5 RAID -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-meta"><span class="marks-badge m4">4 marks</span><span class="hot-badge">🔥 HOT</span></div>
+      <div class="q-text">Define RAID. Explain RAID 0, RAID 1 and RAID 2.</div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-answer">
+      <h3>RAID (Redundant Array of Independent Disks)</h3>
+      <p>RAID is a technology that combines multiple physical disks into one logical unit for <strong>performance, redundancy, or capacity</strong>.</p>
+      <h3>RAID 0 — Striping</h3>
+      <ul>
+        <li>Data is split into blocks and distributed across multiple disks in stripes.</li>
+        <li>✅ Very fast (parallel read/write). ✅ Maximum storage used.</li>
+        <li>❌ NO redundancy — if one disk fails, ALL data is lost!</li>
+        <li><em>Use: Video editing, gaming — where speed matters more than safety.</em></li>
+      </ul>
+      <h3>RAID 1 — Mirroring</h3>
+      <ul>
+        <li>Complete copy of data stored on a second disk (mirror).</li>
+        <li>✅ Full redundancy — if one disk fails, data safe on other disk.</li>
+        <li>✅ Faster reads (can read from both simultaneously).</li>
+        <li>❌ Requires double the disk space. ❌ Slower writes.</li>
+        <li><em>Use: OS drives, databases where data safety is critical.</em></li>
+      </ul>
+      <h3>RAID 2 — Bit-level Striping with Hamming Code</h3>
+      <ul>
+        <li>Data striped at BIT level. Error-correcting Hamming code stored on separate parity disks.</li>
+        <li>Can detect AND correct single-bit errors.</li>
+        <li>All drives must be synchronized (same rotation speed).</li>
+        <li><em>Rarely used today — replaced by RAID 5.</em></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Q6 Directory Structures -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-meta"><span class="marks-badge m4">4 marks</span></div>
+      <div class="q-text">Explain Single-Level and Two-Level Directory structures in detail.</div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-answer">
+      <h3>Single-Level Directory</h3>
+      <p>All files are stored in ONE directory (root directory). Simple and easy to implement.</p>
+      <ul>
+        <li>✅ Simple to find files (only one directory to look).</li>
+        <li>❌ No two files can have the same name.</li>
+        <li>❌ Not suitable for multi-user systems — all users share one namespace.</li>
+        <li><em>Use: Simple embedded systems, early OS.</em></li>
+      </ul>
+      <h3>Two-Level Directory</h3>
+      <p>Each user has their own directory. One <strong>Master File Directory (MFD)</strong> at the top, and individual <strong>User File Directories (UFD)</strong> below.</p>
+      <ul>
+        <li>✅ Different users can have files with same name (in different UFDs).</li>
+        <li>✅ Better organization, user privacy.</li>
+        <li>❌ Users cannot access each other's files easily.</li>
+        <li>❌ No subdirectories within user's directory.</li>
+      </ul>
+      <h3>Hierarchical Directory (Tree)</h3>
+      <p>Modern OS use a tree-structured directory where users can create unlimited subdirectories. Files accessed by <strong>absolute path</strong> (from root: /home/user/file.txt) or <strong>relative path</strong> (from current directory: file.txt).</p>
+    </div>
+  </div>
+
+  <!-- Q7 Disk Space Allocation -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-meta"><span class="marks-badge m4">4 marks</span></div>
+      <div class="q-text">Describe Index / Linked / Contiguous Disk Space Allocation methods.</div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-answer">
+      <h3>1. Contiguous Allocation</h3>
+      <p>Each file stored as a <strong>contiguous run of disk blocks</strong>. OS only needs to track: starting block + number of blocks.</p>
+      <ul>
+        <li>✅ Simple. ✅ Excellent read speed (single seek).</li>
+        <li>❌ External fragmentation. ❌ File cannot grow easily.</li>
+      </ul>
+      <h3>2. Linked List Allocation</h3>
+      <p>File stored as a <strong>linked list of disk blocks</strong>. First word of each block is pointer to next block. Rest is data.</p>
+      <ul>
+        <li>✅ No external fragmentation. ✅ File can grow easily.</li>
+        <li>❌ Slow random access (must traverse chain). ❌ Some space used for pointers.</li>
+      </ul>
+      <h3>3. Indexed Allocation (I-node)</h3>
+      <p>A special <strong>index block (i-node)</strong> is created for each file. It contains pointers to all the file's data blocks.</p>
+      <ul>
+        <li>✅ Fast random access. ✅ No external fragmentation.</li>
+        <li>✅ Only i-node needs to be in memory (not all pointers).</li>
+        <li>❌ Overhead of index block. ❌ For very large files, need multi-level index.</li>
+      </ul>
+      <div class="tip-box">Modern UNIX/Linux use i-nodes (indexed allocation). FAT file system (Windows) uses linked list allocation via a table in memory (FAT table).</div>
+    </div>
+  </div>
+
+  <!-- Q8 I/O Buffering -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-meta"><span class="marks-badge m3">3 marks</span></div>
+      <div class="q-text">Explain I/O Buffering — types of I/O buffering.</div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-answer">
+      <h3>What is Buffering?</h3>
+      <p>A <strong>buffer</strong> is a temporary memory area used to hold data being transferred between two devices or between a device and an application. It handles the speed mismatch between fast CPU and slow I/O devices.</p>
+      <h3>Types of I/O Buffering</h3>
+      <ol>
+        <li><strong>No Buffer:</strong> OS directly accesses the device when needed. Very slow, no optimization.</li>
+        <li><strong>Single Buffer:</strong> OS assigns one buffer in main memory. When I/O request is made, data goes to buffer first, then CPU processes it. Meanwhile, next transfer can start.</li>
+        <li><strong>Double Buffer (Buffer Swapping):</strong> Two buffers used. While CPU processes data from Buffer 1, next data is loaded into Buffer 2 simultaneously. Much more efficient!</li>
+        <li><strong>Circular Buffer:</strong> Multiple buffers arranged in a circle. Used when I/O must keep up with a fast process. Common in audio/video streaming.</li>
+      </ol>
+      <div class="tip-box">Real example: YouTube streaming uses a circular buffer — downloads ahead of what you're watching to prevent interruptions.</div>
+    </div>
+  </div>
+
+  <!-- Q9 Relative vs Absolute path -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-meta"><span class="marks-badge m3">3 marks</span></div>
+      <div class="q-text">Define relative path and absolute path with example.</div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-answer">
+      <h3>Absolute Path</h3>
+      <p>The <strong>complete path</strong> from the root directory to the file. Always starts with the root (/ in Linux, C:\ in Windows).</p>
+      <p><em>Example: /home/student/documents/report.pdf</em></p>
+      <p>No matter what the current directory is, this path always works.</p>
+      <h3>Relative Path</h3>
+      <p>A path <strong>relative to the current working directory</strong>. Does not start from root.</p>
+      <p><em>Example: If current directory is /home/student, then the relative path to report.pdf is: documents/report.pdf</em></p>
+      <table class="ans-table">
+        <tr><th>Feature</th><th>Absolute Path</th><th>Relative Path</th></tr>
+        <tr><td>Starts from</td><td>Root directory (/)</td><td>Current directory</td></tr>
+        <tr><td>Length</td><td>Longer</td><td>Shorter</td></tr>
+        <tr><td>Portability</td><td>Always works</td><td>Depends on current directory</td></tr>
+        <tr><td>Example</td><td>/home/user/file.txt</td><td>file.txt or ../file.txt</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- Q10 Disk scheduling 200 cylinders -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-meta"><span class="marks-badge m7">7 marks</span></div>
+      <div class="q-text">Disk scheduling: FCFS/FIFO and SSTF — disk 200 cylinders, head at 51, requests: 98,183,37,122,14,124,65,67.</div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-answer">
+      <h3>FCFS Solution</h3>
+      <div class="algo-block">Head = 51, Requests in order: 98,183,37,122,14,124,65,67
+
+51→98  = 47
+98→183 = 85
+183→37 = 146
+37→122 = 85
+122→14 = 108
+14→124 = 110
+124→65 = 59
+65→67  = 2
+
+Total FCFS = 47+85+146+85+108+110+59+2 = 642 cylinders</div>
+      <h3>SSTF Solution</h3>
+      <div class="algo-block">Head=51. Sorted available: 14,37,65,67,98,122,124,183
+Closest to 51 = 65 (diff 14)
+
+51→65=14, 65→67=2, 67→98=31, 98→122=24,
+122→124=2, 124→183=59, 183→37=146, 37→14=23
+
+Total SSTF = 14+2+31+24+2+59+146+23 = 301 cylinders
+
+(Better than FCFS's 642!)</div>
+    </div>
+  </div>
+
+  <!-- Q11 SSTF LOOK CLOOK 53 cyl -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-meta"><span class="marks-badge m7">7 marks</span></div>
+      <div class="q-text">Disk scheduling: SSTF, LOOK, C-LOOK — disk 53 cylinders, head at 53, requests: 12,34,52,14,25,68,39.</div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-answer">
+      <h3>SSTF</h3>
+      <div class="algo-block">Head=53. Sorted: 12,14,25,34,39,52,68
+
+53→52=1, 52→39=13, 39→34=5, 34→25=9,
+25→14=11, 14→12=2, 12→68=56
+
+Total SSTF = 1+13+5+9+11+2+56 = 97 cylinders</div>
+      <h3>LOOK (moving UP first)</h3>
+      <div class="algo-block">Head=53, go UP first.
+UP: 53→68 (last request going up)
+DOWN: 68→52→39→34→25→14→12
+
+Movement:
+53→68=15, 68→52=16, 52→39=13, 39→34=5, 34→25=9, 25→14=11, 14→12=2
+Total LOOK = 15+16+13+5+9+11+2 = 71 cylinders</div>
+      <h3>C-LOOK (moving UP first)</h3>
+      <div class="algo-block">Head=53, go UP first.
+UP: 53→68 (last request up)
+Jump to LOWEST: 12 (circular)
+Continue UP: 12→14→25→34→39→52
+
+Movement:
+53→68=15, 68→12=56, 12→14=2, 14→25=11, 25→34=9, 34→39=5, 39→52=13
+Total C-LOOK = 15+56+2+11+9+5+13 = 111 cylinders</div>
+    </div>
+  </div>
+
+</div><!-- end ch5 -->
+
+</div><!-- end container -->
+
+<script>
+function toggle(header) {
+  const card = header.parentElement;
+  card.classList.toggle('open');
+}
+
+function filterChapter(ch, btn) {
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const chapters = document.querySelectorAll('.chapter');
+  if (ch === 'all') {
+    chapters.forEach(c => c.classList.remove('hidden'));
+  } else {
+    chapters.forEach(c => {
+      if (c.id === ch) c.classList.remove('hidden');
+      else c.classList.add('hidden');
+    });
+  }
+}
+
+function searchCards(query) {
+  const q = query.toLowerCase().trim();
+  // Show all chapters when searching
+  document.querySelectorAll('.chapter').forEach(c => c.classList.remove('hidden'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector('.nav-btn[data-ch="all"]').classList.add('active');
+
+  document.querySelectorAll('.q-card').forEach(card => {
+    const text = card.textContent.toLowerCase();
+    if (!q || text.includes(q)) {
+      card.classList.remove('hidden');
+    } else {
+      card.classList.add('hidden');
+    }
+  });
+}
+</script>
+</body>
+</html>
